@@ -164,6 +164,19 @@ end
 
 class UserQ17
   # 以下に回答を記載
+  attr_accessor :name, :age, :gender
+
+  def initialize(name:"名前",age:"年齢",gender:"性別")
+    @name = name
+    @age = age
+    @gender = gender
+  end
+
+  def info
+    puts "名前：#{@name}"
+    puts "年齢：#{@age}"
+    puts "性別：#{@gender}"
+  end
 
 end
 
@@ -179,6 +192,21 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  attr_accessor :name, :age
+
+  def initialize(name:"名前",age:"年齢")
+    @name = name
+    @age = age
+  end
+
+  def introduce
+    if @age > 20
+      puts "こんにちは、#{@name}と申します。宜しくお願いいたします。"
+    else
+      puts "はいさいまいど〜、#{@name}です！！！"
+    end
+  end
+
 
 end
 
@@ -193,10 +221,11 @@ end
 
 class Item
   # 以下を修正して下さい
-
-  def initialize(name)
+  attr_accessor :name
+  def initialize(name:"本のタイトル")
     @name = name
   end
+
 end
 
 def q19
@@ -207,11 +236,37 @@ end
 
 class UserQ20
   # 以下に回答を記載
+  attr_accessor :name, :age
+
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
 
 end
 
 class Zoo
   # 以下に回答を記載
+  def initialize(name:,entry_fee:)
+    @infant = entry_fee[:infant]
+    @children = entry_fee[:children]
+    @adult = entry_fee[:adult]
+    @senior = entry_fee[:senior]
+  end
+
+  def info_entry_fee(user)
+    if user.age >= 65
+      puts "#{user.name}さんの入場料金は#{@senior}円です。"
+    elsif user.age >= 13
+      puts "#{user.name}さんの入場料金は#{@adult}円です。"
+    elsif user.age >= 6
+      puts "#{user.name}さんの入場料金は#{@children}円です。"
+    elsif user.age >= 0
+      puts "#{user.name}さんの入場料金は#{@infant}円です。"
+    else
+      puts "エラーです"
+    end
+  end
 
 end
 
